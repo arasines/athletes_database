@@ -47,7 +47,7 @@ public class AthleteService : IAthleteService
             var data = await _dbContext.Set<Athlete>()
                 .Include(x => x.Photo)
                 .Include(x => x.AthleteResults).ThenInclude(x => x.Game)
-                .Where(string.IsNullOrEmpty(filter.Id), x => x.AthleteResults.Any(y => y.GameId.ToString() == filter.Id))
+                .Where(!string.IsNullOrEmpty(filter.Id), x => x.AthleteResults.Any(y => y.GameId.ToString() == filter.Id))
                 .AsNoTracking()
                 .Skip(filter.Skip)
                 .Take(filter.Take)
@@ -116,7 +116,7 @@ public class AthleteService : IAthleteService
         try
         {
             return await _dbContext.Set<Game>()
-                .Where(x=> x.AthleteResults.Any())
+                .Where(x => x.AthleteResults.Any())
                 .AsNoTracking().OrderByDescending(x => x.Year).ToListAsync(cancellationToken);
         }
         catch (Exception ex)

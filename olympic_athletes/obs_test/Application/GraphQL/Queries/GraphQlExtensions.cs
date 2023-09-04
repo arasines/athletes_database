@@ -1,9 +1,7 @@
 ﻿using System.Drawing;
-using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq.Expressions;
 using GraphQL.Builders;
-using static System.Net.Mime.MediaTypeNames;
-using Image = System.Drawing.Image;
 
 namespace obs_test.Application.GraphQL.Queries;
 
@@ -54,11 +52,12 @@ public static class GraphQlExtensions
     {
         return string.IsNullOrEmpty(context.After) || context.After == "0" ? 0 : int.Parse(context.After);
     }
+
     public static byte[] MakeThumbnail(this byte[] myImage, int thumbWidth, int thumbHeight)
     {
         using var ms = new MemoryStream();
         using var thumbnail = Image.FromStream(new MemoryStream(myImage)).GetThumbnailImage(thumbWidth, thumbHeight, null, new IntPtr());
-        thumbnail.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+        thumbnail.Save(ms, ImageFormat.Png);
         return ms.ToArray();
     }
 }

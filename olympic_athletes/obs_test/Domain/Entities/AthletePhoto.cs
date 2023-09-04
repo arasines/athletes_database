@@ -1,5 +1,4 @@
 ﻿using obs_test.Application.GraphQL.Queries;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace obs_test.Domain.Entities;
 
