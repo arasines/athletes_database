@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using Ardalis.GuardClauses;
+﻿using Ardalis.GuardClauses;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
@@ -70,7 +69,7 @@ public class AthleteService : IAthleteService
             return await _dbContext.Set<Athlete>()
                 .Include(x => x.Photo)
                 .Include(x => x.AthleteResults).ThenInclude(x => x.Game)
-                .Where(string.IsNullOrEmpty(filter.Id), x=> x.AthleteResults.Any(y=> y.GameId.ToString() == filter.Id))
+                .Where(!string.IsNullOrEmpty(filter.Id), x => x.AthleteResults.Any(y => y.AthleteId == x.AthleteId && y.GameId.ToString() == filter.Id))
                 .AsNoTracking()
                 .Skip(filter.Skip)
                 .Take(filter.Take)
@@ -111,11 +110,14 @@ public class AthleteService : IAthleteService
             throw;
         }
     }
+
     public async Task<ICollection<Game>> GetAllGames(CancellationToken cancellationToken)
     {
         try
         {
-            return await _dbContext.Set<Game>().AsNoTracking().OrderByDescending(x=> x.Year).ToListAsync(cancellationToken);
+            return await _dbContext.Set<Game>()
+                .Where(x=> x.AthleteResults.Any())
+                .AsNoTracking().OrderByDescending(x => x.Year).ToListAsync(cancellationToken);
         }
         catch (Exception ex)
         {

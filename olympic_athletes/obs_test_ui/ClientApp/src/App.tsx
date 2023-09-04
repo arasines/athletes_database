@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './assets/scss/main.scss';
 import { CssBaseline, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';

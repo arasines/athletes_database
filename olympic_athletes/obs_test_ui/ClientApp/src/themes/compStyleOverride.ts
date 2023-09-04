@@ -33,13 +33,6 @@ export default function componentStyleOverrides(theme: any) {
         },
       },
     },
-    MuiCardContent: {
-      styleOverrides: {
-        root: {
-          padding: '24px',
-        },
-      },
-    },
     MuiCardActions: {
       styleOverrides: {
         root: {

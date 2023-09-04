@@ -2,9 +2,14 @@ import { useTheme } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
 import LogoSection from './LogoSection';
 import strings from 'res/string';
+import { useLocation } from 'react-router-dom';
+import { RootState } from 'store';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const theme = useTheme();
+  const { pathname } = useLocation();
+  const { title } = useSelector((state: RootState) => state.nav);
   return (
     <>
       <Box
@@ -34,7 +39,7 @@ const Header = () => {
           textDecoration: 'none',
         }}
       >
-        {strings.main.project.name}
+        {pathname == '/' ? strings.main.project.name : title}
       </Typography>
     </>
   );

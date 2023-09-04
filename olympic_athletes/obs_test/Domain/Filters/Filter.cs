@@ -17,5 +17,6 @@ public class Filter
     ///   The skip methos for pagination
     /// </summary>
     public int Skip { get; set; }
+
     public string Id { get; set; } = string.Empty;
 }

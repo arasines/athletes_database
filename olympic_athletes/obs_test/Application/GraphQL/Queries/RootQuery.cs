@@ -8,7 +8,6 @@ using obs_test.Application.Services;
 using obs_test.Domain.Entities;
 using obs_test.Domain.Filters;
 using obs_test.Domain.Helpers;
-using obs_test.Domain.Resources;
 
 namespace obs_test.Application.GraphQL.Queries;
 

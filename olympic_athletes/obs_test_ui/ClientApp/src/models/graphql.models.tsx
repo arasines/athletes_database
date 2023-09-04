@@ -2,7 +2,7 @@ export interface IAthlete {
   athleteId: string;
   name: string;
   surname: string;
-  fullname: string;
+  fullName: string;
   dateOfBirth: string;
   bio: string;
   height: number;
@@ -19,7 +19,8 @@ export interface IAthleteResult {
 }
 export interface IAthletePhoto {
   mimeType: string;
-  blob: string;
+  photo: string;
+  thumbnail: string;
 }
 export interface IGame {
   gameId: string;

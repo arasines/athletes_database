@@ -24,7 +24,7 @@ export const GET_PAGED_ATHLETES = {
             globalScore
             photo {
               mimeType
-              blob
+              thumbnail
             }
           }
         }
@@ -39,18 +39,19 @@ export const GET_PAGED_ATHLETES = {
 };
 export const GET_ATHLETE_BY_ID = {
   query: gql`
-    query GetAthlete($id: ID) {
+    query GetAthlete($id: ID!) {
       athlete(id: $id) {
         athleteId
         name
         surname
+        fullName
         dateOfBirth
         height
         weight
         bio
         photo {
           mimeType
-          blob
+          photo
         }
         athleteResults {
           gold
@@ -64,5 +65,5 @@ export const GET_ATHLETE_BY_ID = {
       }
     }
   `,
-  queryNode: 'games',
+  queryNode: 'athlete',
 };
