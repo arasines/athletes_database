@@ -5,6 +5,7 @@
 
 -  .NET 7.0 + EF + SQLite (API)
 - React + TypeStript + Apollo GraphQL + Material  UI (SPA)
+- React Native + TypeStript + Apollo GraphQL (APP)
 - Support for REST and GraphQL API endpoints
 - Clean Architecture on CQRS
 
@@ -17,13 +18,21 @@
 ### Run the Olimpics Athletes API Locally
 
 1. Download or clone the project code from https://github.com/arasines/athletes_database
-2. Start the API by executing the BAT file **obs_test_api.bat** on the solution root folder (where the *olympic_athletes.sln* file is located) or running dotnet run from the command line  in the project root folder (where the *obs_test_api.csproj* file is located).  You should see the message Now listening on: https://localhost:7198 and http://localhost:5007.
+2. Start the API by executing the BAT file **obs_test_api.bat** on the solution root folder(where the *olympic_athletes.sln* file is located) or running dotnet run from the command line  in the project root folder (where the *obs_test_api.csproj* file is located).  You should see the message Now listening on: https://localhost:7198 and http://localhost:5007.
 3. You should be not able to read the [Swagger](https://localhost:7198/swagger/index.html "Swagger") endpoint and the [GraphQL Playground](https://localhost:7198/ui/playground "GraphQL Playground") to test both APIs.
 
 ### Run the Olimpics Athletes SPA Locally
 
 1. Download or clone the project code from https://github.com/arasines/athletes_database
-2. Start the SPA by executing the BAT file **obs_test_ui.bat** on the solution root folder  (where the olympic_athletes.sln file is located) or running dotnet run from the command line in the project root folder (where the obs_test_api.csproj file is located).  One other alternative it yo do it manually via yarn.
+2. Start the SPA by executing the BAT file **obs_test_ui.bat** on the solution root folder (where the olympic_athletes.sln file is located) or running dotnet run from the command line in the project root folder (where the obs_test_api.csproj file is located).  One other alternative it yo do it manually via yarn.
 3. Once completed the application will be automatically open in your web browser.
+
+> Note: Please execute always first the API.
+
+### Run the Olimpics Athletes APP Locally
+
+1. Download or clone the project code from https://github.com/arasines/athletes_database
+2. Start the SPA by executing the BAT file **obs_test_app.bat** on the solution root folder (where the olympic_athletes.sln file is located) or running dotnet run from the command line in the project root folder (where the obs_test_api.csproj file is located).  One other alternative it yo do it manually navigating to the folder obs_test_app and executing: **npm install** and then **npx expo start**
+3. Once completed,  ccan the QR code provided with Expo Go (Android) or the Camera app (iOS). Yo need to have [Expo Go](https://expo.dev/client "Expo Go") installed or click on **w** to open the web browser mode.
 
 > Note: Please execute always first the API.

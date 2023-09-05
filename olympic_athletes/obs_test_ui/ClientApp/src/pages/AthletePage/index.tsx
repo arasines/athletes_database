@@ -43,7 +43,7 @@ export default function AthletePage(): React.ReactElement {
           <Avatar
             variant="square"
             aria-label="athlete"
-            sx={smallScreen ? { height: 100, width: 100 } : { width: 140, height: 140 }}
+            sx={smallScreen ? { height: 100, width: 100 } : { width: 150, height: 150 }}
             src={`data:${athlete.photo.mimeType};base64,${athlete.photo.photo}`}
           />
         }

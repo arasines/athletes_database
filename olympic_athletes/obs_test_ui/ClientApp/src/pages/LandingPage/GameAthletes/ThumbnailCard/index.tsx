@@ -17,7 +17,7 @@ export function ThumbnailCard({ data, onClick }: Props): React.ReactElement {
     onClick(data.athleteId);
   };
   return (
-    <Card sx={{ width: sizeCard, height: 'auto', paddingX: 1, cursor: 'pointer' }}>
+    <Card sx={{ width: sizeCard, height: 'auto', padding: 1, borderRadius: 0 }}>
       <CardActionArea onClick={handleClick}>
         <CardMedia
           component="img"

@@ -2,17 +2,17 @@ import { useQuery } from '@apollo/client';
 import { Grid } from '@mui/material';
 import MainCard from 'components/cards/MainCard';
 import { ErrorPanel } from 'components/controls/error.panel';
-import MainSkeleton from 'components/skeletons/MainSkeleton';
 import config from 'config';
 import { GET_GAMES, IGame } from 'models';
 import { GameAthletes } from './GameAthletes';
 import useDocumentTitle from 'helpers/useDocumentTitle';
 import strings from 'res/string';
+import Loader from 'components/controls/Loader';
 
 export default function LandingPage(): React.ReactElement {
   useDocumentTitle(strings.main.project.name);
   const { loading, error, data } = useQuery(GET_GAMES.query);
-  if (loading) return <MainSkeleton />;
+  if (loading) return <Loader />;
   if (error) return <ErrorPanel error={error} />;
   return (
     <Grid container spacing={config.gridSpacing}>

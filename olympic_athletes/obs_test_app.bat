@@ -1,6 +1,6 @@
 @echo off
 cls
-REM This is obs_test.bat
+REM This is obs_test_app.bat
 
 ECHO   ___  _ _                 _               _   _   _     _      _            
 ECHO  / _ \^| (_)_ __ ___  _ __ (_) ___ ___     / \ ^| ^|_^| ^|__ ^| ^| ___^| ^|_ ___  ___ 
@@ -10,11 +10,8 @@ ECHO  \___/^|_^|_^|_^| ^|_^| ^|_^| .__/^|_^|\___^|___/ /_/   \_\__^|_^| ^|_^|_^|
 ECHO                     ^|_^|                                                      
 ECHO.
 
-dotnet build
-echo Starting SPA...
-cd .\obs_test_ui\ClientApp
-call yarn install
-call yarn start  --silent
+echo Starting APP...
+cd .\obs_test_app
+call npm install
+call npx expo start
 cd ..
-cd ..
-
